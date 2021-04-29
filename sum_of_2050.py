@@ -14,18 +14,7 @@ def can(num):
         return -1
     if len(str(num)) == 4:
         return num // 2050
-    digit = len(str(num)) - 4
-    div = 2050 * (10 ** digit)
-    ans = []
-    while num >= 2050:
-        ans.append(num // div)
-        num = num - ((num // div) * div)
-        digit = len(str(num)) - 4
-        div = 2050 * (10 ** digit)
-        if num < div:
-            digit -= 1
-            div = 2050 * (10 ** digit)
-    return sum(ans)
+    return sum([int(i) for i in str(num // 2050)])
 
 
 for _ in range (int(input())):
